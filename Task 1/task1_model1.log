@@ -1,28 +1,27 @@
 Circuit: * E:\1. Electrical Engineering\Power Electronics Final\Power-Electronics-Final\Task 1\task1_model1.asc
 
 Direct Newton iteration for .op point succeeded.
-.step rg=2
-Heightened Def Con from 0.00055 to 0.00055
-Heightened Def Con from 0.00056 to 0.00056
-.step rg=14
-.step rg=26
-.step rg=38
-.step rg=50
+Heightened Def Con from 5.02808e-015 to 3.00005e-010
+Heightened Def Con from 1e-005 to 1.00003e-005
+Heightened Def Con from 5e-005 to 5.00003e-005
+Heightened Def Con from 6e-005 to 6.00003e-005
+Heightened Def Con from 0.00024 to 0.00024
+Heightened Def Con from 0.00024 to 0.00024
 
-Date: Thu Dec 18 20:51:01 2025
-Total elapsed time: 100.853 seconds.
+Date: Thu Dec 18 21:15:52 2025
+Total elapsed time: 21.117 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 22898384
-traniter = 22898378
-tranpoints = 10292412
-accept = 10204893
-rejected = 87532
+totiter = 21536701
+traniter = 21536695
+tranpoints = 10161527
+accept = 10112041
+rejected = 49492
 matrix size = 10
 fillins = 0
 solver = Normal
-Matrix Compiler1:      26 opcodes  0.1/0.1/[0.1]
-Matrix Compiler2: 700 bytes object code size  0.1/0.1/[0.1]
+Matrix Compiler1:      26 opcodes  0.1/[0.1]/0.1
+Matrix Compiler2: off  [0.1]/0.1/0.1
 
