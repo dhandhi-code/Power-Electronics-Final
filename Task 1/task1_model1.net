@@ -11,6 +11,6 @@ V1 N001 0 20
 * G
 * D
 * S
-.tran 0 1m 0.98m 0.1n
+.tran 0 1m 0.97m 0.1n
 .backanno
 .end
