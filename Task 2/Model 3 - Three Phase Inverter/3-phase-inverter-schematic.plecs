@@ -3,7 +3,7 @@ Plecs {
   Version       "4.9"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "1.0"
+  TimeSpan      "5e-2"
   Timeout       ""
   Solver        "auto"
   MaxStep       "1e-3"
@@ -54,7 +54,7 @@ Plecs {
   ScriptsDialogSplitterPos "0"
   Schematic {
     Location      [0, 23; 1536, 790]
-    ZoomFactor    1.14437
+    ZoomFactor    1.49863
     SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
@@ -283,23 +283,23 @@ Plecs {
       Type          TriangleGenerator
       Name          "Triangular Wave"
       Show          on
-      Position      [190, 215]
+      Position      [180, 215]
       Direction     right
       Flipped       off
       LabelPosition south
       Parameter {
         Variable      "Min"
-        Value         "-0.5"
+        Value         "-1"
         Show          off
       }
       Parameter {
         Variable      "Max"
-        Value         "0.5"
+        Value         "1"
         Show          off
       }
       Parameter {
         Variable      "f"
-        Value         "1"
+        Value         "1e3"
         Show          off
       }
       Parameter {
@@ -333,7 +333,7 @@ Plecs {
       }
       Parameter {
         Variable      "Frequency"
-        Value         "1"
+        Value         "50"
         Show          off
       }
       Parameter {
@@ -343,7 +343,7 @@ Plecs {
       }
       Parameter {
         Variable      "Units"
-        Value         "1"
+        Value         "3"
         Show          off
       }
     }
@@ -385,17 +385,17 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "Min"
-        Value         "-0.5"
+        Value         "-1"
         Show          off
       }
       Parameter {
         Variable      "Max"
-        Value         "0.5"
+        Value         "1"
         Show          off
       }
       Parameter {
         Variable      "f"
-        Value         "1"
+        Value         "1e3"
         Show          off
       }
       Parameter {
@@ -429,17 +429,17 @@ Plecs {
       }
       Parameter {
         Variable      "Frequency"
-        Value         "1"
+        Value         "50"
         Show          off
       }
       Parameter {
         Variable      "Phase"
-        Value         "120"
+        Value         "-120"
         Show          off
       }
       Parameter {
         Variable      "Units"
-        Value         "1"
+        Value         "3"
         Show          off
       }
     }
@@ -475,23 +475,23 @@ Plecs {
       Type          TriangleGenerator
       Name          "Triangular Wave2"
       Show          on
-      Position      [550, 210]
+      Position      [550, 220]
       Direction     right
       Flipped       off
       LabelPosition south
       Parameter {
         Variable      "Min"
-        Value         "-0.5"
+        Value         "-1"
         Show          off
       }
       Parameter {
         Variable      "Max"
-        Value         "0.5"
+        Value         "1"
         Show          off
       }
       Parameter {
         Variable      "f"
-        Value         "1"
+        Value         "1e3"
         Show          off
       }
       Parameter {
@@ -525,17 +525,17 @@ Plecs {
       }
       Parameter {
         Variable      "Frequency"
-        Value         "1"
+        Value         "50"
         Show          off
       }
       Parameter {
         Variable      "Phase"
-        Value         "-120"
+        Value         "120"
         Show          off
       }
       Parameter {
         Variable      "Units"
-        Value         "1"
+        Value         "3"
         Show          off
       }
     }
@@ -582,8 +582,24 @@ Plecs {
       LabelPosition southSoutheast
       Parameter {
         Variable      "voltage"
-        Value         "1"
+        Value         "2"
         Show          off
+      }
+      ComponentAssertion {
+        SignalName       "Measured voltage"
+        TrSignalName     "Measured voltage"
+        LowerLimit       "-inf"
+        UpperLimit       "inf"
+        IncludeLimits    off
+        Action           "2"
+      }
+      ComponentAssertion {
+        SignalName       "Measured voltage"
+        TrSignalName     "Measured voltage"
+        LowerLimit       "-inf"
+        UpperLimit       "inf"
+        IncludeLimits    off
+        Action           "2"
       }
     }
     Component {
@@ -596,7 +612,171 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "R"
-        Value         "2m"
+        Value         "2e-3"
+        Show          off
+      }
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Probe"
+      Show          on
+      Position      [925, 295]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Probe {
+        Component     "3ph Meter"
+        Path          ""
+        Signals       {"Measured voltage"}
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope"
+      Show          on
+      Position      [1005, 295]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Location      [202, 96; 1027, 684]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAzkAAAIxAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":214,\"Labels\":[],"
+"\"VisualIdxs\":[]}"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      1
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope1"
+      Show          on
+      Position      [385, 90]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Location      [448, 177; 1134, 736]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAq4AAAIUAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":124,\"Labels\":[],"
+"\"VisualIdxs\":[]}"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
+"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      Axes          "2"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux"
+      Show          off
+      Position      [270, 100]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Width"
+        Value         "3"
         Show          off
       }
     }
@@ -668,35 +848,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Triangular Wave"
-      SrcTerminal   1
-      Points        [225, 215; 225, 175]
-      DstComponent  "Comparator"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Sine Wave"
-      SrcTerminal   1
-      DstComponent  "Comparator"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Comparator"
-      SrcTerminal   3
-      Points        [305, 170; 305, 275]
-      Branch {
-        DstComponent  "IGBTD1"
-        DstTerminal   3
-      }
-      Branch {
-        DstComponent  "Logical\nOperator"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Logical\nOperator"
       SrcTerminal   1
       Points        [305, 410]
@@ -744,7 +895,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Triangular Wave2"
       SrcTerminal   1
-      Points        [585, 210; 585, 170]
+      Points        [585, 220; 585, 170]
       DstComponent  "Comparator2"
       DstTerminal   2
     }
@@ -828,6 +979,73 @@ Plecs {
       SrcTerminal   1
       DstComponent  "R1"
       DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Probe"
+      SrcTerminal   1
+      DstComponent  "Scope"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave"
+      SrcTerminal   1
+      Points        [220, 165]
+      Branch {
+        DstComponent  "Comparator"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [220, 100]
+        DstComponent  "Mux"
+        DstTerminal   3
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Triangular Wave"
+      SrcTerminal   1
+      Points        [225, 215; 225, 175; 230, 175]
+      Branch {
+        DstComponent  "Comparator"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [230, 110]
+        DstComponent  "Mux"
+        DstTerminal   4
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux"
+      SrcTerminal   1
+      Points        [320, 100; 320, 85]
+      DstComponent  "Scope1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Comparator"
+      SrcTerminal   3
+      Points        [305, 170]
+      Branch {
+        Points        [305, 275]
+        Branch {
+          DstComponent  "IGBTD1"
+          DstTerminal   3
+        }
+        Branch {
+          DstComponent  "Logical\nOperator"
+          DstTerminal   2
+        }
+      }
+      Branch {
+        Points        [340, 170; 340, 95]
+        DstComponent  "Scope1"
+        DstTerminal   2
+      }
     }
   }
 }
