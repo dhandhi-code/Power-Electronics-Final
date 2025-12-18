@@ -1,6 +1,6 @@
 * E:\1. Electrical Engineering\Power Electronics Final\Power-Electronics-Final\Task 1\Model 2\task1_model2.asc
 V_PWM N007 0 PULSE(0 10 0 10n 10n 5u 10u)
-R_g N004 N007 15
+R_g N004 N007 {Rg}
 Q1 N002 N004 N010 0 2N3904
 Q2 N010 N004 0 0 2N2907
 M1 N006 N010 0 0 AO6408
@@ -23,7 +23,7 @@ V1 N001 0 20
 * G
 * D
 * S
-;step param Rg 2 50 12
+.step param Rg 2 50 12
 * G
 * D
 * S
