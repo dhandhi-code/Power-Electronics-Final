@@ -1,7 +1,7 @@
 * E:\1. Electrical Engineering\Power Electronics Final\Power-Electronics-Final\Task 1\task1_model1.asc
 V_gg N003 0 PULSE(0 10 0 10n 10n 5u 10u)
 M1 N002 N004 0 0 AO6408
-R1 N004 N003 12
+R1 N004 N003 {Rg}
 R_L N001 N002 20
 C1 N001 0 1m
 V1 N001 0 20
@@ -11,6 +11,7 @@ V1 N001 0 20
 * G
 * D
 * S
-.tran 0 1m 0.97m 0.1n
+.tran 0 1m 0.98m 0.1n
+.step param Rg 2 50 12
 .backanno
 .end
